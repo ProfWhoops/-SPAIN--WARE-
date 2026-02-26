@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ej5s6unsoq0x"]
+
+[ext_resource type="Script" uid="uid://eixr66v8y8dt" path="res://Scripts/question_mark_block.gd" id="1_ld48p"]
+[ext_resource type="Texture2D" uid="uid://c18rgsblk18op" path="res://Assets/Art/Blocks/Q block.svg" id="1_o3uqk"]
+[ext_resource type="PackedScene" uid="uid://bpte7atnxdcha" path="res://Scenes/tool_tip.tscn" id="3_xog1d"]
+[ext_resource type="AudioStream" uid="uid://b1y0hr0i4mlip" path="res://Assets/Audio/SFX/Question_Block_Hit.ogg" id="4_4hmkq"]
+[ext_resource type="AudioStream" uid="uid://dyfyuredt21ku" path="res://Assets/Audio/SFX/mario_coin_sound.mp3" id="5_hi3c2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ld48p"]
+size = Vector2(306, 306.60333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xog1d"]
+size = Vector2(276.48602, 33.083767)
+
+[node name="? Block" type="StaticBody2D" unique_id=515938167]
+scale = Vector2(0.42316788, 0.42316788)
+collision_mask = 2
+input_pickable = true
+script = ExtResource("1_ld48p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1165346707]
+position = Vector2(-1, 0.30168107)
+shape = SubResource("RectangleShape2D_ld48p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=938307244]
+texture = ExtResource("1_o3uqk")
+
+[node name="BonkCollisions" type="Area2D" parent="." unique_id=1520468879]
+collision_mask = 2
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BonkCollisions" unique_id=359472440]
+position = Vector2(-3.5446892, 146.51399)
+shape = SubResource("RectangleShape2D_xog1d")
+
+[node name="ToolTip" parent="." unique_id=826009757 instance=ExtResource("3_xog1d")]
+
+[node name="Block Hit" type="AudioStreamPlayer2D" parent="." unique_id=1331581415]
+stream = ExtResource("4_4hmkq")
+bus = &"SFX"
+
+[node name="Correct Block Hit" type="AudioStreamPlayer2D" parent="." unique_id=2015358335]
+stream = ExtResource("5_hi3c2")
+bus = &"SFX"
+
+[connection signal="body_entered" from="BonkCollisions" to="." method="_on_bonk_collisions_body_entered"]

@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://wyoe3eiob6as"]
+
+[ext_resource type="Script" uid="uid://bxnqrogvsmhq4" path="res://Scripts/credits.gd" id="1_ccovl"]
+[ext_resource type="FontFile" uid="uid://cb7s63xl2apsi" path="res://Assets/Fonts/sc_ccbackbeatregular.ttf" id="2_1bamb"]
+[ext_resource type="AudioStream" uid="uid://dwysvkq8eotbs" path="res://Assets/Audio/Music/Credits.mp3" id="3_xelri"]
+
+[node name="Credits" type="Control" unique_id=1747633030]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ccovl")
+speed = null
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=100187930]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Credits Text" type="RichTextLabel" parent="." unique_id=883790897]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 291.0
+offset_bottom = 291.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_1bamb")
+theme_override_fonts/bold_font = ExtResource("2_1bamb")
+bbcode_enabled = true
+text = "[img]res://Assets/Art/title.svg[/img]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Game created by ProfWhoops
+
+[u] Music [/u]
+
+Coin sound  Nintendo
+Block sound Nintendo
+Credits music FNaF Pizzeria Simulator
+
+
+
+This game uses Godot Engine, available under the following license:
+
+Copyright (c) 2014-present Godot Engine contributors.
+Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE."
+horizontal_alignment = 1
+
+[node name="Credits Music" type="AudioStreamPlayer" parent="." unique_id=6485617]
+stream = ExtResource("3_xelri")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="StartTimer" type="Timer" parent="." unique_id=351808338]

@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://dw17pdgogrdgo"]
+
+[ext_resource type="FontFile" uid="uid://bm2ehb3c88qkk" path="res://Assets/Fonts/Clash_Regular.otf" id="1_6hmj3"]
+
+[resource]
+font = ExtResource("1_6hmj3")
+font_size = 32

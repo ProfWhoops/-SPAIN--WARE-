@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dmif1xbl06jd6"]
+
+[ext_resource type="PackedScene" uid="uid://b6p4yd8md2l46" path="res://Scenes/translate.tscn" id="1_80nbo"]
+
+[node name="Game" type="Node2D" unique_id=225022104]
+
+[node name="Translate" parent="." unique_id=827658987 instance=ExtResource("1_80nbo")]

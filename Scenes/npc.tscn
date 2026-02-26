@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://7ptwl1nnf1g0"]
+
+[ext_resource type="Script" uid="uid://5yotkwou232j" path="res://Scripts/npc.gd" id="1_g6unj"]
+[ext_resource type="Texture2D" uid="uid://cef8g8v7v1gqv" path="res://Assets/Art/Characters/NPC1.svg" id="2_2xkex"]
+[ext_resource type="FontFile" uid="uid://bm2ehb3c88qkk" path="res://Assets/Fonts/Clash_Regular.otf" id="2_xxcha"]
+[ext_resource type="Script" uid="uid://dgwrw4m4lkinf" path="res://Scripts/speech_bubble.gd" id="3_6atyd"]
+[ext_resource type="Texture2D" uid="uid://bc0cgi5absqcp" path="res://Assets/Art/Speech Bubble/Speech Bubble.svg" id="3_h1ryf"]
+[ext_resource type="Texture2D" uid="uid://31abfy5jptiv" path="res://Assets/Art/Speech Bubble/Speech Bubble Outline.svg" id="4_2xkex"]
+[ext_resource type="Texture2D" uid="uid://nc058yyyh26p" path="res://Assets/Art/Speech Bubble/Speech Bubble Tail.svg" id="6_2xkex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcha"]
+size = Vector2(111, 112)
+
+[sub_resource type="Theme" id="Theme_kh24r"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 40
+Label/font_sizes/font_size = 47
+Label/fonts/font = ExtResource("2_xxcha")
+
+[node name="NPC" type="StaticBody2D" unique_id=1232054543]
+script = ExtResource("1_g6unj")
+metadata/_edit_vertical_guides_ = [-90.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=379604686]
+position = Vector2(-1.0000038, -16)
+scale = Vector2(0.63208765, 0.6320876)
+texture = ExtResource("2_2xkex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=596575303]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_xxcha")
+disabled = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=20972288]
+
+[node name="SpeechBubble" type="Control" parent="UI" unique_id=2125273134 node_paths=PackedStringArray("target_npc")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_6atyd")
+target_npc = NodePath("../..")
+
+[node name="BubbleTextureOutline" type="TextureRect" parent="UI/SpeechBubble" unique_id=38628794]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 167.8794
+grow_horizontal = 2
+texture = ExtResource("4_2xkex")
+expand_mode = 5
+
+[node name="PointerTexture" type="TextureRect" parent="UI/SpeechBubble/BubbleTextureOutline" unique_id=1030088616]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 17.0
+offset_top = 9.0
+offset_right = 138.0
+offset_bottom = 156.88887
+texture = ExtResource("6_2xkex")
+
+[node name="BubbleTexture" type="TextureRect" parent="UI/SpeechBubble/BubbleTextureOutline" unique_id=582880602]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -2.0
+offset_right = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_h1ryf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DialogueLabel" type="Label" parent="UI/SpeechBubble" unique_id=1817890506]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 160.0
+theme = SubResource("Theme_kh24r")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.62967473, 0.62967473, 0.6296747, 1)
+theme_override_font_sizes/font_size = 76
+text = "placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShuffleDelayTimer" type="Timer" parent="." unique_id=482325087]
+one_shot = true
+
+[connection signal="timeout" from="ShuffleDelayTimer" to="." method="_on_shuffle_delay_timer_timeout"]

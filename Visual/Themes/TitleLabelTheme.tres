@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://djl3dsr2cjasc"]
+
+[ext_resource type="FontFile" uid="uid://bm2ehb3c88qkk" path="res://Assets/Fonts/Clash_Regular.otf" id="1_rp2yr"]
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/constants/outline_size = 57
+Label/font_sizes/font_size = 100
+Label/fonts/font = ExtResource("1_rp2yr")

@@ -1,0 +1,9 @@
+[gd_resource type="Theme" format=3 uid="uid://d3yr3pgs81bif"]
+
+[ext_resource type="FontFile" uid="uid://bm2ehb3c88qkk" path="res://Assets/Fonts/Clash_Regular.otf" id="1_y3u7b"]
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_y3u7b")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_y3u7b")
