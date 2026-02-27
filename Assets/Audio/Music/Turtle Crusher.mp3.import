@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xdrhh6uex7id"
+path="res://.godot/imported/Turtle Crusher.mp3-298f4b06e963a50972fcc06b2ea3aa49.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/Turtle Crusher.mp3"
+dest_files=["res://.godot/imported/Turtle Crusher.mp3-298f4b06e963a50972fcc06b2ea3aa49.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

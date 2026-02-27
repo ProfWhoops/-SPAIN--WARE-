@@ -443,6 +443,8 @@ script = ExtResource("11_t1dhk")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=209259966]
 stream = ExtResource("17_wyh8j")
 autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="pressed" from="MainButtons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MainButtons/-WARE-" to="." method="_on_start_game_pressed"]

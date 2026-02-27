@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+@onready var coins = $"../CanvasLayer/Control/Coins" as RichTextLabel
 @onready var label = %DialogueLabel as Label
 @onready var pointer = %PointerTexture as TextureRect
 @onready var sprite_2d = $Sprite2D as Sprite2D
@@ -77,6 +78,7 @@ func wrong_button_pressed():
 
 func correct_button_pressed():
 	print("Correct button pressed!")
+	coins.add_value(1)
 	var blocks := choice_blocks.get_children()
 	for i in blocks.size():
 		if blocks[i].has_method("bump"):
