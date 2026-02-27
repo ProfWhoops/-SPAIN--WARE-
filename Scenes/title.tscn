@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://btknac263go8a"]
+
+[ext_resource type="Texture2D" uid="uid://bc0cgi5absqcp" path="res://Assets/Art/Speech Bubble/Speech Bubble.svg" id="1_ekrfg"]
+[ext_resource type="Theme" uid="uid://djl3dsr2cjasc" path="res://Visual/Themes/TitleLabelTheme.tres" id="2_fp2oq"]
+
+[node name="Title" type="Control" unique_id=1180747133]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 195.0
+offset_bottom = -195.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title Backer" type="TextureRect" parent="." unique_id=699286975]
+modulate = Color(0, 0.61666656, 1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 63.0
+offset_top = 53.0
+offset_right = -63.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ekrfg")
+stretch_mode = 4
+
+[node name="-SPAIN" type="Label" parent="." unique_id=2014178828]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 108.99999
+offset_top = 269.0
+offset_right = -675.0
+offset_bottom = -279.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.06875453
+theme = ExtResource("2_fp2oq")
+theme_override_colors/font_color = Color(1, 0.6333333, 0, 1)
+text = "-SPAIN"
+
+[node name="-" type="Label" parent="." unique_id=1575905892]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 579.0
+offset_top = 268.0
+offset_right = -541.0
+offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fp2oq")
+theme_override_colors/font_color = Color(0.26666665, 1, 0, 1)
+theme_override_constants/outline_size = 57
+text = "-"
+
+[node name="WARE-" type="Label" parent="." unique_id=540141710]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 712.0
+offset_top = 245.0
+offset_right = -82.0
+offset_bottom = -303.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.08792057
+theme = ExtResource("2_fp2oq")
+theme_override_colors/font_color = Color(0, 0.9000001, 1, 1)
+text = "WARE-"

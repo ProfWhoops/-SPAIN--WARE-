@@ -3,6 +3,44 @@
 [ext_resource type="Script" uid="uid://bxnqrogvsmhq4" path="res://Scripts/credits.gd" id="1_ccovl"]
 [ext_resource type="FontFile" uid="uid://cb7s63xl2apsi" path="res://Assets/Fonts/sc_ccbackbeatregular.ttf" id="2_1bamb"]
 [ext_resource type="AudioStream" uid="uid://dwysvkq8eotbs" path="res://Assets/Audio/Music/Credits.mp3" id="3_xelri"]
+[ext_resource type="PackedScene" uid="uid://btknac263go8a" path="res://Scenes/title.tscn" id="4_1bamb"]
+[ext_resource type="Theme" uid="uid://d3yr3pgs81bif" path="res://Visual/Themes/button_theme.tres" id="5_xelri"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uah1q"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7emq5"]
+bg_color = Color(0.3665946, 0.3665946, 0.36659458, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_803yc"]
+bg_color = Color(0.67481464, 0.67481464, 0.6748146, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Credits" type="Control" unique_id=1747633030]
 layout_mode = 3
@@ -12,7 +50,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ccovl")
-speed = null
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=100187930]
 layout_mode = 1
@@ -28,36 +65,21 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 291.0
-offset_bottom = 291.0
+offset_top = 644.0
+offset_bottom = 679.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("2_1bamb")
 theme_override_fonts/bold_font = ExtResource("2_1bamb")
 bbcode_enabled = true
-text = "[img]res://Assets/Art/title.svg[/img]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Game created by ProfWhoops
+text = "Game created by [b]ProfWhoops[/b]
 
 [u] Music [/u]
 
-Coin sound  Nintendo
-Block sound Nintendo
-Credits music FNaF Pizzeria Simulator
+[color=gray] Coin sound [/color]  Nintendo
+[color=gray]Block sound[/color] Nintendo
+[color=gray]Credits music[/color] FNaF Pizzeria Simulator
+[color=gray]Title music[/color] FNaF Pizzeria Simulator
 
 
 
@@ -82,7 +104,10 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE."
+SOFTWARE.
+
+
+THANK YOU FOR PLAYING"
 horizontal_alignment = 1
 
 [node name="Credits Music" type="AudioStreamPlayer" parent="." unique_id=6485617]
@@ -91,4 +116,36 @@ autoplay = true
 bus = &"Music"
 parameters/looping = true
 
-[node name="StartTimer" type="Timer" parent="." unique_id=351808338]
+[node name="Title" parent="." unique_id=1180747133 instance=ExtResource("4_1bamb")]
+layout_mode = 1
+
+[node name="Intersection Point" type="Control" parent="." unique_id=641048301]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 329.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Exit" type="Button" parent="." unique_id=727660560]
+visible = false
+layout_mode = 0
+offset_left = 459.0
+offset_top = 531.0
+offset_right = 686.0
+offset_bottom = 562.0
+theme = ExtResource("5_xelri")
+theme_override_colors/font_color = Color(0.008201996, 0.008202039, 0.008202008, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_1bamb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uah1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7emq5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_803yc")
+text = "Exit"
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

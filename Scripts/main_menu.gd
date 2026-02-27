@@ -1,11 +1,12 @@
 extends Control
 
-@onready var main_buttons = $MainButtons
+@onready var main_buttons = get_tree().get_nodes_in_group("Main Button")
 @onready var settings_panel = $SettingsPanel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	main_buttons.visible = true
+	for node in main_buttons:
+		node.visible = true
 	settings_panel.visible = false
 
 
@@ -21,7 +22,8 @@ func _on_start_game_pressed():
 
 func _on_settings_pressed():
 	print("Settings Pressed")
-	main_buttons.visible = false
+	for node in main_buttons:
+		node.visible = false
 	settings_panel.visible = true
 	
 
