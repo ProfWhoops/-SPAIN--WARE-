@@ -1,9 +1,11 @@
+@icon("res://Assets/Art/Characters/Player/Run/player_run1.svg")
 extends CharacterBody2D
 
 @onready var marker_2d = %Marker2D
 @onready var animations = $AnimatedSprite2D
 @onready var jump_buffer_timer = $JumpBufferTimer
 @onready var coyote_timer = $CoyoteTimer
+@onready var hearts = %Hearts
 
 @export var speed := 450
 @export var acceleration := 40
@@ -96,5 +98,9 @@ func hit_question_block():
 
 func _on_area_2d_body_entered(body) -> void:
 	if body == self:
+		hearts.change_health(-1)
+		if hearts.hearts <= 0:
+			return
+		
 		position = marker_2d.position
 		velocity.y = 0

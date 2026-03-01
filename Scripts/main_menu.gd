@@ -1,3 +1,4 @@
+@icon("res://Assets/Art/-WARE-.svg")
 extends Control
 
 @onready var main_buttons = get_tree().get_nodes_in_group("Main Button")

@@ -1,10 +1,11 @@
 extends StaticBody2D
 
-@onready var coins = $"../CanvasLayer/Control/Coins" as RichTextLabel
+@onready var coins = %Coins as RichTextLabel
 @onready var label = %DialogueLabel as Label
 @onready var pointer = %PointerTexture as TextureRect
 @onready var sprite_2d = $Sprite2D as Sprite2D
 @onready var shuffle_delay_timer = $ShuffleDelayTimer
+@onready var hearts = %Hearts as HBoxContainer
 
 @export var npc_lines := [
 	{
@@ -75,6 +76,7 @@ func reset_and_shuffle_blocks():
 			blocks[i].position = positions[i]
 func wrong_button_pressed():
 	print("Wrong button pressed!")
+	hearts.change_health(-1)
 
 func correct_button_pressed():
 	print("Correct button pressed!")
@@ -92,7 +94,7 @@ func _on_block_hit(correct):
 		correct_button_pressed()
 	else:
 		wrong_button_pressed()
-
+	
 
 func _on_shuffle_delay_timer_timeout():
 	ask_new_question()

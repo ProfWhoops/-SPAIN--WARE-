@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="-SPAIN--WARE-"
-config/description="Have you ever wanted to play a game that teaches you Spanish with little micro challenges? No? Well just play it anyway! -SPAIN--WARE- teaches you just how to speak Spanish!"
+config/description="Have you ever wanted to play a game that tests your Spanish with little micro challenges? No? Well just play it anyway! -SPAIN--WARE- makes sure you just how to speak Spanish!"
 config/version="0.6 Alpha"
-run/main_scene="uid://c3pywnbuf7vnw"
+run/main_scene="uid://dw4losxmirt0j"
 config/features=PackedStringArray("4.6", "Mobile")
 boot_splash/image="uid://cf57fnjwiofl"
 config/icon="res://Assets/Art/icon.svg"
@@ -22,6 +22,10 @@ boot_splash/minimum_display_time=2500
 [audio]
 
 buses/default_bus_layout="uid://ft3syivs1scj"
+
+[autoload]
+
+SaveData="*uid://drnxhd23toyrt"
 
 [display]
 

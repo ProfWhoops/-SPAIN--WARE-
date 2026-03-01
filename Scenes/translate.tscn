@@ -6,7 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://ej5s6unsoq0x" path="res://Scenes/questionMarkBlock.tscn" id="6_decmf"]
 [ext_resource type="FontFile" uid="uid://cb7s63xl2apsi" path="res://Assets/Fonts/sc_ccbackbeatregular.ttf" id="6_vur51"]
 [ext_resource type="AudioStream" uid="uid://xdrhh6uex7id" path="res://Assets/Audio/Music/Turtle Crusher.mp3" id="7_decmf"]
-[ext_resource type="Script" uid="uid://br2lf0g42mard" path="res://Scenes/coins.gd" id="7_vur51"]
+[ext_resource type="Script" uid="uid://br2lf0g42mard" path="res://Scripts/coins.gd" id="7_vur51"]
+[ext_resource type="Script" uid="uid://bbmho3nro82oj" path="res://Scripts/hearts.gd" id="8_nbs86"]
+[ext_resource type="Texture2D" uid="uid://coou7g4f720sw" path="res://Assets/Art/heart.svg" id="8_vur51"]
+[ext_resource type="Script" uid="uid://bybdvxcn6nwqb" path="res://Scripts/v_button_container.gd" id="10_6bq7j"]
+[ext_resource type="Theme" uid="uid://djl3dsr2cjasc" path="res://Visual/Themes/TitleLabelTheme.tres" id="10_ehmwn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_decmf"]
 texture = ExtResource("6_bw3wx")
@@ -93,6 +97,39 @@ sources/1 = SubResource("TileSetAtlasSource_decmf")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5svj8"]
 size = Vector2(6716, 165)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bq7j"]
+bg_color = Color(0.11858145, 0.11858136, 0.11858138, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehmwn"]
+bg_color = Color(0.22670749, 0.22670752, 0.2267074, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mubi3"]
+bg_color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2qgi"]
+bg_color = Color(0.3403393, 0.34033933, 0.3403393, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="Node2D" type="Node2D" unique_id=1324077583]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=759576997]
@@ -133,7 +170,8 @@ position = Vector2(336.00003, 247.00003)
 bool_block = true
 is_correct = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=555130271]
+[node name="Game Music" type="AudioStreamPlayer" parent="." unique_id=555130271]
+unique_name_in_owner = true
 stream = ExtResource("7_decmf")
 autoplay = true
 bus = &"Music"
@@ -141,25 +179,27 @@ parameters/looping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1855822260]
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=1610465059]
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=1610465059]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="Coins" type="RichTextLabel" parent="CanvasLayer/Control" unique_id=1364245250]
+[node name="Coins" type="RichTextLabel" parent="CanvasLayer/UI" unique_id=1364245250]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1.0
 offset_top = 164.0
-offset_right = -920.0
-offset_bottom = -328.0
+offset_bottom = -51.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 20
 theme_override_constants/shadow_offset_x = 0
@@ -169,10 +209,116 @@ theme_override_fonts/normal_font = ExtResource("6_vur51")
 theme_override_font_sizes/normal_font_size = 75
 bbcode_enabled = true
 text = "[img=75]res://Assets/Art/coin.svg[/img] : 0"
-vertical_alignment = 1
 script = ExtResource("7_vur51")
+
+[node name="Hearts" type="HBoxContainer" parent="CanvasLayer/UI" unique_id=96035053]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 832.0
+offset_top = 173.0
+offset_bottom = -370.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_nbs86")
+
+[node name="1" type="TextureRect" parent="CanvasLayer/UI/Hearts" unique_id=1199094450]
+layout_mode = 2
+texture = ExtResource("8_vur51")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="2" type="TextureRect" parent="CanvasLayer/UI/Hearts" unique_id=227739526]
+layout_mode = 2
+texture = ExtResource("8_vur51")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="3" type="TextureRect" parent="CanvasLayer/UI/Hearts" unique_id=1251639425]
+layout_mode = 2
+texture = ExtResource("8_vur51")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Game Over" type="ColorRect" parent="CanvasLayer/UI" unique_id=1291279438]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7411765)
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI/Game Over" unique_id=1336351886]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -144.0
+offset_right = 205.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6bq7j")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Game Over/PanelContainer" unique_id=1805733641]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VButtonContainer" type="VBoxContainer" parent="CanvasLayer/UI/Game Over/PanelContainer/MarginContainer" unique_id=1556703412]
+layout_mode = 2
+theme_override_constants/separation = 10
+script = ExtResource("10_6bq7j")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/Game Over/PanelContainer/MarginContainer/VButtonContainer" unique_id=1427565746]
+layout_mode = 2
+theme = ExtResource("10_ehmwn")
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 25
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="CanvasLayer/UI/Game Over/PanelContainer/MarginContainer/VButtonContainer" unique_id=746967324]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("6_vur51")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ehmwn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mubi3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p2qgi")
+text = "Restart"
+
+[node name="Quit to Main Menu" type="Button" parent="CanvasLayer/UI/Game Over/PanelContainer/MarginContainer/VButtonContainer" unique_id=1235304020]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("6_vur51")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ehmwn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mubi3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p2qgi")
+text = "Quit to Main Menu"
+
+[node name="Quit" type="Button" parent="CanvasLayer/UI/Game Over/PanelContainer/MarginContainer/VButtonContainer" unique_id=1281259447]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("6_vur51")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ehmwn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mubi3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p2qgi")
+text = "Quit"
 
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="block_hit" from="? Blocks/? Block1" to="NPC" method="_on_block_hit"]
 [connection signal="block_hit" from="? Blocks/? Block2" to="NPC" method="_on_block_hit"]
 [connection signal="block_hit" from="? Blocks/Correct ? Block" to="NPC" method="_on_block_hit"]
+[connection signal="pressed" from="CanvasLayer/UI/Game Over/PanelContainer/MarginContainer/VButtonContainer/Restart" to="CanvasLayer/UI/Game Over/PanelContainer/MarginContainer/VButtonContainer" method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Game Over/PanelContainer/MarginContainer/VButtonContainer/Quit to Main Menu" to="CanvasLayer/UI/Game Over/PanelContainer/MarginContainer/VButtonContainer" method="_on_quit_to_main_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Game Over/PanelContainer/MarginContainer/VButtonContainer/Quit" to="CanvasLayer/UI/Game Over/PanelContainer/MarginContainer/VButtonContainer" method="_on_quit_pressed"]

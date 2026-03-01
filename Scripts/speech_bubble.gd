@@ -1,3 +1,4 @@
+@icon("res://Assets/Art/Speech Bubble/Speech Bubble.svg")
 extends Control
 
 @export var target_npc : StaticBody2D

@@ -66,7 +66,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 644.0
-offset_bottom = 679.0
+offset_bottom = 698.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("2_1bamb")
@@ -80,6 +80,7 @@ text = "Game created by [b]ProfWhoops[/b]
 [color=gray]Block sound[/color] Nintendo
 [color=gray]Credits music[/color] FNaF Pizzeria Simulator
 [color=gray]Title music[/color] FNaF Pizzeria Simulator
+[color=gray]Minigame Music[/color] FNaF Sister Location
 
 
 

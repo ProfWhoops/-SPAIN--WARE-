@@ -34,7 +34,6 @@ position = Vector2(-3.5446892, 146.51399)
 shape = SubResource("RectangleShape2D_xog1d")
 
 [node name="ToolTip" parent="." unique_id=826009757 instance=ExtResource("3_xog1d")]
-visible = false
 
 [node name="Block Hit" type="AudioStreamPlayer2D" parent="." unique_id=1331581415]
 stream = ExtResource("4_4hmkq")

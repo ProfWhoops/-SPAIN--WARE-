@@ -1,3 +1,4 @@
+@icon("res://Assets/Art/Blocks/Q block.svg")
 extends StaticBody2D
 
 @export var bump_height := 100

@@ -12,7 +12,6 @@
 [ext_resource type="Theme" uid="uid://djl3dsr2cjasc" path="res://Visual/Themes/TitleLabelTheme.tres" id="7_yhxw7"]
 [ext_resource type="Script" uid="uid://bq2rrmffcih1h" path="res://Scripts/music_control.gd" id="9_trj04"]
 [ext_resource type="FontFile" uid="uid://cb7s63xl2apsi" path="res://Assets/Fonts/sc_ccbackbeatregular.ttf" id="10_vr1f0"]
-[ext_resource type="Script" uid="uid://ch0s5krheqgbo" path="res://Scripts/sfx_control.gd" id="11_5egv6"]
 [ext_resource type="Script" uid="uid://cxaqvkthwvx1r" path="res://Scripts/check_button.gd" id="11_t1dhk"]
 [ext_resource type="Script" uid="uid://d1so71jjgoh43" path="res://Scripts/resolution_control.gd" id="12_t1dhk"]
 [ext_resource type="PackedScene" uid="uid://btknac263go8a" path="res://Scenes/title.tscn" id="16_m3bi6"]
@@ -297,7 +296,6 @@ offset_bottom = -415.0
 mouse_filter = 2
 
 [node name="SettingsPanel" type="Panel" parent="." unique_id=644585930]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -348,25 +346,49 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -148.0
-offset_top = -104.0
-offset_right = 148.0
-offset_bottom = 44.5
+offset_left = -175.0
+offset_top = -118.0
+offset_right = 175.0
+offset_bottom = 184.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SettingsPanel/VBoxContainer" unique_id=1173116876]
+[node name="Master" type="HBoxContainer" parent="SettingsPanel/VBoxContainer" unique_id=940805777]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 45
 
-[node name="Label" type="Label" parent="SettingsPanel/VBoxContainer/HBoxContainer" unique_id=320859510]
+[node name="Label" type="Label" parent="SettingsPanel/VBoxContainer/Master" unique_id=1873094531]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_vr1f0")
+theme_override_font_sizes/font_size = 26
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="SettingsPanel/VBoxContainer/Master" unique_id=1228576346]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxLine_yhxw7")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_trj04")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_trj04")
+max_value = 1.0
+step = 0.05
+value = 1.0
+ticks_position = 2
+script = ExtResource("9_trj04")
+audio_bus_name = "Master"
+
+[node name="Music" type="HBoxContainer" parent="SettingsPanel/VBoxContainer" unique_id=1173116876]
+layout_mode = 2
+theme_override_constants/separation = 68
+
+[node name="Label" type="Label" parent="SettingsPanel/VBoxContainer/Music" unique_id=320859510]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("10_vr1f0")
 theme_override_font_sizes/font_size = 26
 text = "Music"
 
-[node name="AudioControl" type="HSlider" parent="SettingsPanel/VBoxContainer/HBoxContainer" unique_id=1702948471]
+[node name="MusicSlider" type="HSlider" parent="SettingsPanel/VBoxContainer/Music" unique_id=1702948471]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -380,17 +402,17 @@ ticks_position = 2
 script = ExtResource("9_trj04")
 audio_bus_name = "Music"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="SettingsPanel/VBoxContainer" unique_id=677540393]
+[node name="SFX" type="HBoxContainer" parent="SettingsPanel/VBoxContainer" unique_id=677540393]
 layout_mode = 2
-theme_override_constants/separation = 45
+theme_override_constants/separation = 94
 
-[node name="Label" type="Label" parent="SettingsPanel/VBoxContainer/HBoxContainer3" unique_id=1470813535]
+[node name="Label" type="Label" parent="SettingsPanel/VBoxContainer/SFX" unique_id=1470813535]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("10_vr1f0")
 theme_override_font_sizes/font_size = 26
 text = "SFX"
 
-[node name="AudioControl2" type="HSlider" parent="SettingsPanel/VBoxContainer/HBoxContainer3" unique_id=1479095838]
+[node name="SFXSlider" type="HSlider" parent="SettingsPanel/VBoxContainer/SFX" unique_id=1479095838]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -401,20 +423,20 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 ticks_position = 2
-script = ExtResource("11_5egv6")
+script = ExtResource("9_trj04")
 audio_bus_name = "SFX"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsPanel/VBoxContainer" unique_id=1089925582]
+[node name="Resolution" type="HBoxContainer" parent="SettingsPanel/VBoxContainer" unique_id=1089925582]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label2" type="Label" parent="SettingsPanel/VBoxContainer/HBoxContainer2" unique_id=2035095110]
+[node name="Label2" type="Label" parent="SettingsPanel/VBoxContainer/Resolution" unique_id=2035095110]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("10_vr1f0")
 theme_override_font_sizes/font_size = 26
 text = "Resolution"
 
-[node name="ResolutionControl" type="OptionButton" parent="SettingsPanel/VBoxContainer/HBoxContainer2" unique_id=1532094164]
+[node name="ResolutionControl" type="OptionButton" parent="SettingsPanel/VBoxContainer/Resolution" unique_id=1532094164]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("10_vr1f0")
@@ -432,12 +454,22 @@ popup/item_4/text = "Potato"
 popup/item_4/id = 4
 script = ExtResource("12_t1dhk")
 
-[node name="FullScreenControl" type="CheckButton" parent="SettingsPanel/VBoxContainer" unique_id=795141269]
+[node name="Fullscreen" type="HBoxContainer" parent="SettingsPanel/VBoxContainer" unique_id=72626294]
+layout_mode = 2
+theme_override_constants/separation = 164
+alignment = 1
+
+[node name="Label2" type="Label" parent="SettingsPanel/VBoxContainer/Fullscreen" unique_id=69081707]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_vr1f0")
+theme_override_font_sizes/font_size = 26
+text = "Fullscreen"
+
+[node name="FullScreenControl" type="CheckButton" parent="SettingsPanel/VBoxContainer/Fullscreen" unique_id=795141269]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("10_vr1f0")
 theme_override_font_sizes/font_size = 26
 theme_override_colors/button_checked_color = Color(0.1333332, 1, 0, 1)
-text = "FullScreen"
 script = ExtResource("11_t1dhk")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=209259966]
@@ -452,7 +484,8 @@ parameters/looping = true
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="SettingsPanel/Label/Back" to="." method="_on_back_pressed"]
-[connection signal="value_changed" from="SettingsPanel/VBoxContainer/HBoxContainer/AudioControl" to="SettingsPanel/VBoxContainer/HBoxContainer/AudioControl" method="_on_value_changed"]
-[connection signal="value_changed" from="SettingsPanel/VBoxContainer/HBoxContainer3/AudioControl2" to="SettingsPanel/VBoxContainer/HBoxContainer3/AudioControl2" method="_on_value_changed"]
-[connection signal="item_selected" from="SettingsPanel/VBoxContainer/HBoxContainer2/ResolutionControl" to="SettingsPanel/VBoxContainer/HBoxContainer2/ResolutionControl" method="_on_item_selected"]
-[connection signal="toggled" from="SettingsPanel/VBoxContainer/FullScreenControl" to="SettingsPanel/VBoxContainer/FullScreenControl" method="_on_toggled"]
+[connection signal="value_changed" from="SettingsPanel/VBoxContainer/Master/MasterSlider" to="SettingsPanel/VBoxContainer/Master/MasterSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="SettingsPanel/VBoxContainer/Music/MusicSlider" to="SettingsPanel/VBoxContainer/Music/MusicSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="SettingsPanel/VBoxContainer/SFX/SFXSlider" to="SettingsPanel/VBoxContainer/SFX/SFXSlider" method="_on_value_changed"]
+[connection signal="item_selected" from="SettingsPanel/VBoxContainer/Resolution/ResolutionControl" to="SettingsPanel/VBoxContainer/Resolution/ResolutionControl" method="_on_item_selected"]
+[connection signal="toggled" from="SettingsPanel/VBoxContainer/Fullscreen/FullScreenControl" to="SettingsPanel/VBoxContainer/Fullscreen/FullScreenControl" method="_on_toggled"]

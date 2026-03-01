@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://dw4losxmirt0j"]
+
+[ext_resource type="FontFile" uid="uid://cb7s63xl2apsi" path="res://Assets/Fonts/sc_ccbackbeatregular.ttf" id="1_duh1u"]
+[ext_resource type="Script" uid="uid://c7cnptctain4a" path="res://Scenes/intro.gd" id="1_rsiac"]
+[ext_resource type="FontFile" uid="uid://bm2ehb3c88qkk" path="res://Assets/Fonts/Clash_Regular.otf" id="2_alxvg"]
+[ext_resource type="AudioStream" uid="uid://dkhhwqpckorw8" path="res://Assets/Audio/Music/awkward-cricket-sound-effect.mp3" id="3_alxvg"]
+[ext_resource type="Script" uid="uid://bq2rrmffcih1h" path="res://Scripts/music_control.gd" id="4_geirw"]
+[ext_resource type="Script" uid="uid://dmu67c5q5vdgn" path="res://Scripts/exit_button.gd" id="5_hwjxs"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_hwjxs"]
+color = Color(1, 1, 1, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rsiac"]
+color = Color(0.3815613, 0.74344814, 0, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsiac"]
+bg_color = Color(0.08468992, 0.08468992, 0.08468992, 1)
+border_color = Color(0.021434633, 0.021434639, 0.021434609, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bmuq"]
+bg_color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+border_color = Color(0.021434633, 0.021434639, 0.021434609, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nn7w8"]
+bg_color = Color(0.14406255, 0.14406255, 0.14406255, 1)
+border_color = Color(0.021434633, 0.021434639, 0.021434609, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Intro" type="Control" unique_id=1343413861]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rsiac")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1426232923]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1694915105]
+stream = ExtResource("3_alxvg")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1485313629]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 413.0
+offset_top = 273.0
+offset_right = -413.0
+offset_bottom = -273.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1927111163]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("1_duh1u")
+theme_override_fonts/bold_font = ExtResource("2_alxvg")
+bbcode_enabled = true
+text = "Please increase the slider until you can clearly hear crickets"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer" unique_id=522087935]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxLine_hwjxs")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_rsiac")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_rsiac")
+max_value = 1.0
+step = 0.05
+ticks_position = 2
+script = ExtResource("4_geirw")
+audio_bus_name = "Master"
+
+[node name="Exit Button" type="Button" parent="VBoxContainer" unique_id=1378426932]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_alxvg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rsiac")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3bmuq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nn7w8")
+text = "OK"
+script = ExtResource("5_hwjxs")
+
+[connection signal="value_changed" from="VBoxContainer/MasterSlider" to="VBoxContainer/MasterSlider" method="_on_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Exit Button" to="VBoxContainer/Exit Button" method="_on_pressed"]
