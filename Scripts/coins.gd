@@ -14,8 +14,9 @@ func _process(delta):
 	text = "[img=75]res://Assets/Art/coin.svg[/img] : %d" % value
 	
 	if value >= 10:
-		hearts.change_health(1)
-		value -= 10
+		if hearts.hearts < 3:
+			hearts.change_health(1)
+			value -= 10
 
 func add_value(number : int):
 	value += number

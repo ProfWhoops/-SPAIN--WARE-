@@ -25,7 +25,10 @@ func _ready():
 	mouse_entered.connect(on_mouse_entered)
 	mouse_exited.connect(on_mouse_exited)
 	
-
+func _process(delta) -> void:
+	if Input.is_action_just_pressed("debug"):
+		if not is_correct:
+			modulate.a = 0.5
 
 func _on_bonk_collisions_body_entered(body):
 	if body.is_in_group("Player") && not bonking && not bonked:

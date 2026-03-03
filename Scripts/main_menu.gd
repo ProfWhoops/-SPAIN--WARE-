@@ -6,6 +6,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SaveData.save()
 	for node in main_buttons:
 		node.visible = true
 	settings_panel.visible = false
