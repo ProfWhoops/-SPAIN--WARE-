@@ -7,11 +7,15 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SaveData.save()
+	reset_buttons()
+	AcrossSceneAudio.play()
+	AcrossSceneAudio.play_music_level()
+
+func reset_buttons():
 	for node in main_buttons:
 		node.visible = true
 	settings_panel.visible = false
-
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -19,6 +23,7 @@ func _process(delta):
 
 func _on_start_game_pressed():
 	print("Start Pressed")
+	AcrossSceneAudio.stop()
 	get_tree().change_scene_to_file("res://Scenes/translate.tscn")
 
 
@@ -36,14 +41,15 @@ func _on_quit_pressed():
 
 
 func _on_back_pressed():
-	_ready()
+	reset_buttons()
 
 
 func _on_minigames_pressed():
 	print("Minigames Pressed")
-	get_tree().change_scene_to_file("res://Scenes/translate.tscn")
+	get_tree().change_scene_to_file("res://Scenes/minigames.tscn")
 
 
 func _on_credits_pressed():
 	print("Credits Pressed")
+	AcrossSceneAudio.stop()
 	get_tree().change_scene_to_file("res://Scenes/credits.tscn")

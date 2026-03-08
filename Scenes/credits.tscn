@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bxnqrogvsmhq4" path="res://Scripts/credits.gd" id="1_ccovl"]
 [ext_resource type="FontFile" uid="uid://cb7s63xl2apsi" path="res://Assets/Fonts/sc_ccbackbeatregular.ttf" id="2_1bamb"]
+[ext_resource type="FontFile" uid="uid://by2c1bt2be84f" path="res://Assets/Fonts/Clash_Bold.otf" id="3_uah1q"]
 [ext_resource type="AudioStream" uid="uid://dwysvkq8eotbs" path="res://Assets/Audio/Music/Credits.mp3" id="3_xelri"]
 [ext_resource type="PackedScene" uid="uid://btknac263go8a" path="res://Scenes/title.tscn" id="4_1bamb"]
 [ext_resource type="Theme" uid="uid://d3yr3pgs81bif" path="res://Visual/Themes/button_theme.tres" id="5_xelri"]
@@ -66,18 +67,19 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 644.0
-offset_bottom = 698.0
+offset_bottom = 732.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("2_1bamb")
-theme_override_fonts/bold_font = ExtResource("2_1bamb")
+theme_override_fonts/bold_font = ExtResource("3_uah1q")
 bbcode_enabled = true
-text = "Game created by [b]ProfWhoops[/b]
+text = "For [color=green]Bohunt School Wokingham [/color][img width=25]res://Assets/Art/Bohunt_School_Wokingham_Logo.png[/img]
+Game created by [color=blue]ProfWhoops[/color]
 
 [u] Music [/u]
 
-[color=gray] Coin sound [/color]  Nintendo
-[color=gray]Block sound[/color] Nintendo
+[color=gray] Coin sound [/color][color=red]Nintendo[/color]
+[color=gray]Block sound[/color] [color=red]Nintendo[/color]
 [color=gray]Credits music[/color] FNaF Pizzeria Simulator
 [color=gray]Title music[/color] FNaF Pizzeria Simulator
 [color=gray]Minigame Music[/color] FNaF Sister Location

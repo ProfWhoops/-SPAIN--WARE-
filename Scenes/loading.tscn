@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://cgn1001k30l32"]
+
+[ext_resource type="Script" uid="uid://j7n0300nj7ya" path="res://Scripts/control.gd" id="1_31xe0"]
+[ext_resource type="Texture2D" uid="uid://c18rgsblk18op" path="res://Assets/Art/Blocks/Q block.svg" id="2_qw0b6"]
+[ext_resource type="FontFile" uid="uid://cb7s63xl2apsi" path="res://Assets/Fonts/sc_ccbackbeatregular.ttf" id="3_4tbtc"]
+[ext_resource type="Texture2D" uid="uid://dkbb3h5r7r11t" path="res://Assets/Art/Characters/Player/player_wait.svg" id="3_hl3gf"]
+[ext_resource type="Texture2D" uid="uid://s87rku31vcki" path="res://Assets/Art/Characters/Player/player_wait2.svg" id="4_1lxvg"]
+[ext_resource type="Texture2D" uid="uid://bogmbnydfqsp8" path="res://Assets/Art/Characters/Player/player_wait3.svg" id="5_mml6u"]
+[ext_resource type="PackedScene" uid="uid://btknac263go8a" path="res://Scenes/title.tscn" id="7_rl1o0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w76sl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hl3gf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1lxvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mml6u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1lxvg")
+}],
+"loop": true,
+"name": &"wait",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dlcsm"]
+bg_color = Color(0, 0, 0, 0.6745098)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.42352942)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw0b6"]
+bg_color = Color(0, 1, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0, 0.5058824)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Loading" type="Control" unique_id=1602005742]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_31xe0")
+next_scene_path = "res://Scenes/intro.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=692437593]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 0.83137256, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=868081887]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 273.0
+offset_right = 283.0
+offset_bottom = 469.0
+texture = ExtResource("2_qw0b6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1725015833]
+position = Vector2(905, 406)
+sprite_frames = SubResource("SpriteFrames_w76sl")
+animation = &"wait"
+autoplay = "wait"
+frame_progress = 0.8179111
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=570787416]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -387.0
+offset_top = 219.0
+offset_right = 387.0
+offset_bottom = 282.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("3_4tbtc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxFlat_dlcsm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qw0b6")
+value = 50.0
+
+[node name="Title" parent="." unique_id=1180747133 instance=ExtResource("7_rl1o0")]
+layout_mode = 1
+offset_top = 3.0
+offset_bottom = -387.0

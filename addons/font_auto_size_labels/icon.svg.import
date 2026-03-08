@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1wbkfiqadmub"
-path="res://.godot/imported/Scrolling Background.svg-93744015207c9b227454377cdc1a1cb1.ctex"
+uid="uid://dlxymorm0qt18"
+path="res://.godot/imported/icon.svg-9355bbb754fa4de92547cc3fb4ceb1a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/splash screens/Scrolling Background.svg"
-dest_files=["res://.godot/imported/Scrolling Background.svg-93744015207c9b227454377cdc1a1cb1.ctex"]
+source_file="res://addons/font_auto_size_labels/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-9355bbb754fa4de92547cc3fb4ceb1a5.ctex"]
 
 [params]
 

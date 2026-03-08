@@ -7,15 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://bc0cgi5absqcp" path="res://Assets/Art/Speech Bubble/Speech Bubble.svg" id="3_h1ryf"]
 [ext_resource type="Texture2D" uid="uid://31abfy5jptiv" path="res://Assets/Art/Speech Bubble/Speech Bubble Outline.svg" id="4_2xkex"]
 [ext_resource type="Texture2D" uid="uid://nc058yyyh26p" path="res://Assets/Art/Speech Bubble/Speech Bubble Tail.svg" id="6_2xkex"]
+[ext_resource type="Theme" uid="uid://djl3dsr2cjasc" path="res://Visual/Themes/TitleLabelTheme.tres" id="7_qi7up"]
+[ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="9_a6nw3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcha"]
 size = Vector2(111, 112)
-
-[sub_resource type="Theme" id="Theme_kh24r"]
-Label/colors/font_color = Color(0, 0, 0, 1)
-Label/constants/outline_size = 40
-Label/font_sizes/font_size = 47
-Label/fonts/font = ExtResource("2_xxcha")
 
 [node name="NPC" type="StaticBody2D" unique_id=1232054543]
 script = ExtResource("1_g6unj")
@@ -78,19 +74,33 @@ texture = ExtResource("3_h1ryf")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="DialogueLabel" type="Label" parent="UI/SpeechBubble" unique_id=1817890506]
+[node name="DialogueLabel" type="Label" parent="UI/SpeechBubble/BubbleTextureOutline" unique_id=1831360394]
 unique_name_in_owner = true
-texture_filter = 1
-layout_mode = 0
-offset_right = 1153.0
-offset_bottom = 160.0
-theme = SubResource("Theme_kh24r")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.62967473, 0.62967473, 0.6296747, 1)
-theme_override_font_sizes/font_size = 76
-text = "placeholder"
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 6.0
+offset_right = -30.0
+offset_bottom = -8.879395
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_qi7up")
+theme_override_colors/font_outline_color = Color(0.63375676, 0.6337568, 0.63375676, 1)
+theme_override_constants/outline_size = 23
+theme_override_fonts/font = ExtResource("2_xxcha")
+theme_override_font_sizes/font_size = 116
+text = "Placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("9_a6nw3")
+_max_size = 116
+_current_font_size = 116
+_editor_defaults_set = true
+metadata/_custom_type_script = "uid://bttgnk3bb2a8i"
 
 [node name="ShuffleDelayTimer" type="Timer" parent="." unique_id=482325087]
 one_shot = true

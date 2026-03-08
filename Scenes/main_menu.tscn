@@ -16,8 +16,7 @@
 [ext_resource type="Script" uid="uid://d1so71jjgoh43" path="res://Scripts/resolution_control.gd" id="12_t1dhk"]
 [ext_resource type="PackedScene" uid="uid://btknac263go8a" path="res://Scenes/title.tscn" id="16_m3bi6"]
 [ext_resource type="FontFile" uid="uid://bm2ehb3c88qkk" path="res://Assets/Fonts/Clash_Regular.otf" id="16_ujyyl"]
-[ext_resource type="Script" uid="uid://bux3ymxitwna8" path="res://Scenes/delete_save_data.gd" id="17_mkpwh"]
-[ext_resource type="AudioStream" uid="uid://c6jxl0dd2y5dv" path="res://Assets/Audio/Music/Title Screen.mp3" id="17_wyh8j"]
+[ext_resource type="Script" uid="uid://bux3ymxitwna8" path="res://Scripts/delete_save_data.gd" id="17_mkpwh"]
 [ext_resource type="FontFile" uid="uid://by2c1bt2be84f" path="res://Assets/Fonts/Clash_Bold.otf" id="18_mkpwh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48xlc"]
@@ -646,12 +645,6 @@ size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("10_vr1f0")
 theme_override_font_sizes/font_size = 32
 text = "No..."
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=209259966]
-stream = ExtResource("17_wyh8j")
-autoplay = true
-bus = &"Music"
-parameters/looping = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=315959736]
 libraries/ = SubResource("AnimationLibrary_ehtkc")

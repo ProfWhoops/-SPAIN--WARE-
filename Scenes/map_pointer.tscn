@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://mncha4owe103"]
+
+[ext_resource type="Texture2D" uid="uid://dq7jut3cf0rh8" path="res://Assets/Art/map pointer.svg" id="1_73bsr"]
+[ext_resource type="Texture2D" uid="uid://6s53ut7uxhjk" path="res://Assets/Art/map pointer selected.svg" id="2_w8iw7"]
+[ext_resource type="Texture2D" uid="uid://ba20rn7r3h5km" path="res://Assets/Art/map pointer hover.svg" id="3_r8ypk"]
+[ext_resource type="Script" uid="uid://1e3xniny1hnn" path="res://Scripts/map_pointer.gd" id="4_17ikf"]
+[ext_resource type="PackedScene" uid="uid://bpte7atnxdcha" path="res://Scenes/tool_tip.tscn" id="5_jyf0x"]
+
+[node name="Map Pointer" type="TextureButton" unique_id=1148258991]
+offset_left = 741.0
+offset_top = 140.0
+offset_right = 804.0
+offset_bottom = 241.0
+texture_normal = ExtResource("1_73bsr")
+texture_pressed = ExtResource("2_w8iw7")
+texture_hover = ExtResource("3_r8ypk")
+script = ExtResource("4_17ikf")
+minigame = "Translate"
+
+[node name="ToolTip" parent="." unique_id=826009757 instance=ExtResource("5_jyf0x")]
+layout_mode = 0
+offset_right = 475.0
+offset_bottom = 247.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

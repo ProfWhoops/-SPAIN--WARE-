@@ -1,17 +1,24 @@
 extends Control
 
-@onready var label_1 = $ChoiceLabels/Label1 as Label
-@onready var label_2 = $ChoiceLabels/Label2 as Label
-@onready var correct_label = $ChoiceLabels/CorrectLabel as Label
+@onready var progress_bar = $ProgressBar
+
+@export var next_scene_path := "res://Scenes/main_menu.tscn"
+
+var progress : Array[float]
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _ready() -> void:
+	ResourceLoader.load_threaded_request(next_scene_path)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_just_pressed("debug"):
-		label_1.add_theme_color_override("font_color", Color.RED)
-		label_2.add_theme_color_override("font_color", Color.YELLOW)
-		correct_label.add_theme_color_override("font_color", Color.GREEN)
+func _process(delta) -> void:
+	var status := ResourceLoader.load_threaded_get_status(next_scene_path, progress)
+	
+	match status:
+		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+			var percentage := progress[0] * 100
+			progress_bar.value = percentage
+		ResourceLoader.THREAD_LOAD_LOADED:
+			var scene := ResourceLoader.load_threaded_get(next_scene_path)
+			get_tree().change_scene_to_packed(scene)

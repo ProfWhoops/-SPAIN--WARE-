@@ -10,16 +10,31 @@ extends StaticBody2D
 @export var npc_lines := [
 	{
 	"question" : "¿Dónde está la estación?",
-	"correct" : "The station is in the town centre"
-	},
+	"correct" : "The station is in the town centre"},
 	{
 	"question" : "¿Cómo te llamas?",
 	"correct" : "My name is Hugo"
 	},
 	{
 	"question" : "¿Cuántos años tiene?",
-	"correct" : "I am 13 years old"
-	}
+	"correct" : "I'm 13 years old"
+	},
+	{
+	"question" : "¿Cómo estás?",
+	"correct" : "I'm okay"
+	},
+	{
+	"question" : "¿Cuál es tu comida favorita?",
+	"correct" : "I like sandwiches"
+	},
+	{
+	"question" : "¿De qué color es el cielo?",
+	"correct" : "The sky is blue"
+	},
+	{
+	"question" : "¿Dónde está Alemania?",
+	"correct" : "Germany is in Europe"
+	},
 ]
 
 @export var choice_blocks : Node2D

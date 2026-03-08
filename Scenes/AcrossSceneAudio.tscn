@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://xik2w373wdno"]
+
+[ext_resource type="Script" uid="uid://v6pdubget42p" path="res://Scripts/across_scene_audio.gd" id="1_tgv66"]
+
+[node name="AcrossSceneAudio" type="AudioStreamPlayer" unique_id=453154415]
+bus = &"Music"
+script = ExtResource("1_tgv66")

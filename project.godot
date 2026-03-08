@@ -13,15 +13,18 @@ config_version=5
 config/name="-SPAIN--WARE-"
 config/description="Have you ever wanted to play a game that tests your Spanish with little micro challenges? No? Well just play it anyway! -SPAIN--WARE- makes sure you just how to speak Spanish!"
 config/version="0.6 Alpha"
-run/main_scene="uid://dw4losxmirt0j"
+run/main_scene="uid://cgn1001k30l32"
 config/features=PackedStringArray("4.6", "Mobile")
 boot_splash/image="uid://cf57fnjwiofl"
 config/icon="res://Assets/Art/icon.svg"
-boot_splash/minimum_display_time=2500
 
 [audio]
 
 buses/default_bus_layout="uid://ft3syivs1scj"
+
+[autoload]
+
+AcrossSceneAudio="*uid://xik2w373wdno"
 
 [display]
 
@@ -33,6 +36,10 @@ window/per_pixel_transparency/allowed=true
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/font_auto_size_labels/plugin.cfg")
 
 [input]
 
